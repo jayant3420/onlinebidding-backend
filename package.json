@@ -1,0 +1,25 @@
+{
+  "name": "onlinebidding",
+  "version": "1.0.0",
+  "description": "online bidding backend with serverless",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./dist/index.js", 
+    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "dev": "npm run build && sls offline start"
+  },
+  "author": "Jayant Kumar",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.6",
+    "serverless-offline": "^13.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "serverless-http": "^3.2.0"
+  }
+}
