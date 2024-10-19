@@ -4,7 +4,7 @@
   "description": "online bidding backend with serverless",
   "main": "index.js",
   "scripts": {
-    "start": "node ./dist/index.js", 
+    "start": "node ./dist/index.js",
     "build": "rm -rf dist && tsc -p tsconfig.json",
     "dev": "npm run build && sls offline start"
   },
@@ -12,14 +12,20 @@
   "license": "ISC",
   "devDependencies": {
     "@types/aws-lambda": "^8.10.145",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.6",
+    "@types/sequelize": "^4.28.20",
     "serverless-offline": "^13.3.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "mysql2": "^3.11.3",
+    "sequelize": "^6.37.4",
+    "sequelize-cli": "^6.6.2",
     "serverless-http": "^3.2.0"
   }
 }
