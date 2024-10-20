@@ -1,6 +1,9 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express, { Request, Response } from "express";
-import user from "./route/user/user.routes";
 import publicRoutes from "./route/public";
+import product from "./route/product/product.routes";
 import { errorHandler } from "./middleware/error.handler";
 
 const app = express();
@@ -15,27 +18,9 @@ app.get("/", (req: Request, res: Response) => {
   );
 });
 
+app.use("/api/v1", publicRoutes);
+app.use("/api/v1/product", product);
 
-app.use((req, res, next) => {
-  console.log('Request Headers:', req.headers);
-  console.log('Content-Length:', req.headers['content-length']);
-  let body = '';
-  
-  req.on('data', (chunk) => {
-    body += chunk;
-  });
-
-  req.on('end', () => {
-    console.log('Actual Body Size:', Buffer.byteLength(body));
-    next();
-  });
-});
-
-
-
-console.log("hjiiiii");
-// app.use("/api/v1", publicRoutes);
-// app.use("/api/v1/user", user);
 
 app.use(errorHandler);
 

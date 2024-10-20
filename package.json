@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./dist/index.js",
     "build": "rm -rf dist && tsc -p tsconfig.json",
-    "dev": "npm run build && sls offline start"
+    "dev": "npm run build && sls offline start",
+    "local": "npm run build && nodemon local.ts"
   },
   "author": "Jayant Kumar",
   "license": "ISC",

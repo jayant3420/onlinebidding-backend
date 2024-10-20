@@ -1,6 +1,5 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('users', {
+module.exports = (sequelize, DataTypes) => {
+  const users = sequelize.define('users', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -18,11 +17,11 @@ module.exports = function(sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      unique: "email"
+      unique: true
     },
     password: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: false
     },
     deviceToken: {
       type: DataTypes.STRING(255),
@@ -37,18 +36,20 @@ module.exports = function(sequelize, DataTypes) {
         name: "PRIMARY",
         unique: true,
         using: "BTREE",
-        fields: [
-          { name: "id" },
-        ]
+        fields: [{ name: "id" }]
       },
       {
         name: "email",
         unique: true,
         using: "BTREE",
-        fields: [
-          { name: "email" },
-        ]
+        fields: [{ name: "email" }]
       },
     ]
   });
+
+  users.associate = (models) => {
+    users.hasMany(models.bids, { foreignKey: 'userId', as: 'bids' });
+  };
+
+  return users;
 };
