@@ -4,7 +4,7 @@ import Product from "../../controller/product/product.controller";
 import {
   FetchProductListSchema,
   FetchProductDetailSchema,
-} from "../../controller/product/product.schema";
+} from "./product.schema";
 import { validateRequest } from "../../middleware/validator";
 import { asyncErrorCatch } from "../../util/error.catch.helper";
 

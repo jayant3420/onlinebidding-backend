@@ -4,6 +4,7 @@ dotenv.config();
 import express, { Request, Response } from "express";
 import publicRoutes from "./route/public";
 import product from "./route/product/product.routes";
+import bid from "./route/bid/bid.routes";
 import { errorHandler } from "./middleware/error.handler";
 
 const app = express();
@@ -20,6 +21,7 @@ app.get("/", (req: Request, res: Response) => {
 
 app.use("/api/v1", publicRoutes);
 app.use("/api/v1/product", product);
+app.use("/api/v1/bid", bid);
 
 
 app.use(errorHandler);

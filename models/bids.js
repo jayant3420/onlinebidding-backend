@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+const Sequelize = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   const bids = sequelize.define(
     "bids",
@@ -28,11 +28,6 @@ module.exports = (sequelize, DataTypes) => {
       bidAmount: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
-      },
-      bidTime: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
     },
     {

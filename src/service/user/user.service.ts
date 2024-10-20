@@ -13,12 +13,12 @@ class UserService {
 
   getUserByEmailId = async (email: string) => {
     const user = await db.users.findOne({ where: { email } });
-    return user.dataValues;
+    return user;
   };
 
   loginUser = async (loginReq: LoginRequestType) => {
     const userDetails = await this.getUserByEmailId(loginReq.email);
-    return userDetails;
+    return userDetails.dataValues;
   };
 }
 
