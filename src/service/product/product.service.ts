@@ -20,12 +20,19 @@ class UserService {
 
   productByIdwithBidHistory = async (productId: number) => {
     const product = await db.products.findOne({
-      where: { id: productId }, // Find the product by its ID
+      where: { id: productId },
       include: [
         {
           model: db.bids,
           as: "bids",
           order: [["bidTime", "DESC"]],
+          include: [
+            {
+              model: db.users,
+              as: "user",
+              attributes: ["firstName", "lastName"],
+            },
+          ],
         },
       ],
     });
