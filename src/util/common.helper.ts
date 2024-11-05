@@ -34,7 +34,7 @@ class CommonHelper {
       if (!accessTokenSecretKey) {
         throw new Error("access secret key is undefined");
       }
-      return Jwt.sign(payload, accessTokenSecretKey, { expiresIn: "4h" });
+      return Jwt.sign(payload, accessTokenSecretKey, { expiresIn: "1d" });
     } catch (err) {
       console.log(err);
       throw new Error("Error in generating accessToken");
